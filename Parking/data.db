@@ -1,0 +1,11 @@
+//Creation DATABASE
+
+CREATE DATABASE "ParkingDB"
+    WITH
+    OWNER = "UserParkingDB"
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+COMMENT ON DATABASE "ParkingDB"
+    IS 'This DB belong to Parking application in Java';
