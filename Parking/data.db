@@ -9,3 +9,5 @@ CREATE DATABASE "ParkingDB"
 
 COMMENT ON DATABASE "ParkingDB"
     IS 'This DB belong to Parking application in Java';
+
+//Creation SCHEMA
