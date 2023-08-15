@@ -67,3 +67,36 @@ pass varchar (20),
 fktypeaccount integer,
 	FOREIGN KEY (fktypeaccount) REFERENCES typeaccount (id)
 );
+
+create table states (
+id SERIAL primary key,
+states varchar (30),
+spaces integer
+);
+
+create table parking (
+id SERIAL primary key,
+datetimestart timestamp,
+datetimeend timestamp,
+fkclient integer,
+fkaccount integer,
+fkstates integer,
+	FOREIGN KEY (fkclient) REFERENCES client (id),
+	FOREIGN KEY (fkaccount) REFERENCES account (id),
+	FOREIGN KEY (fkstates) REFERENCES states (id)
+);
+
+create table typepay (
+id SERIAL primary key,
+typepay varchar (30)
+);
+
+create table pay (
+id SERIAL primary key,
+mount decimal (4,2),
+datetimepay timestamp,
+fkparking integer,
+fktypepay integer,
+	FOREIGN KEY (fkparking) REFERENCES parking (id),
+	FOREIGN KEY (fktypepay) REFERENCES typepay (id)
+);
