@@ -10,4 +10,60 @@ CREATE DATABASE "ParkingDB"
 COMMENT ON DATABASE "ParkingDB"
     IS 'This DB belong to Parking application in Java';
 
-//Creation SCHEMA
+//Creation TABLES
+create table rateday (
+id SERIAL primary key,
+priceday decimal (4, 2)
+)
+
+create table ratehour (
+id SERIAL primary key,
+pricehour decimal (4, 2)
+)
+
+create table typecar (
+id SERIAL primary key,
+typecar varchar (50),
+fkpricehour integer,
+fkpriceday integer,
+	FOREIGN KEY (fkpricehour) REFERENCES ratehour (id),
+	FOREIGN KEY (fkpriceday) REFERENCES rateday (id)
+)
+
+create table car (
+id SERIAL primary key,
+numbercar varchar (6),
+color varchar (30),
+fkmarcacar integer,
+fktypecar integer,
+fkstatecar integer,
+	FOREIGN KEY (fkmarcacar) REFERENCES marcacar (id),
+	FOREIGN KEY (fktypecar) REFERENCES typecar (id),
+	FOREIGN KEY (fkstatecar) REFERENCES statecar (id)
+);
+
+create table client (
+id SERIAL primary key,
+firstname varchar (100),
+lastname varchar (100),
+identification varchar (10),
+phone integer,
+address varchar (100),
+fksexo integer,
+fkcar integer,
+	FOREIGN KEY (fksexo) REFERENCES sex (id),
+	FOREIGN KEY (fkcar) REFERENCES car (id)
+);
+
+create table typeaccount (
+id SERIAL primary key,
+typeaccount varchar (20)
+);
+
+create table account (
+id SERIAL primary key,
+userid varchar (20),
+pass varchar (20),
+fktypeaccount integer,
+	FOREIGN KEY (fktypeaccount) REFERENCES typeaccount (id)
+);
