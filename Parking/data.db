@@ -42,6 +42,11 @@ fkstatecar integer,
 	FOREIGN KEY (fkstatecar) REFERENCES statecar (id)
 );
 
+create table sex (
+	id SERIAL primary key,
+	sex varchar	(10)
+);
+
 create table client (
 id SERIAL primary key,
 firstname varchar (100),
