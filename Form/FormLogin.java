@@ -208,8 +208,6 @@ class FormRegister extends javax.swing.JFrame {
                                                 .addContainerGap(30, Short.MAX_VALUE)));
         };
 
-}
-
         private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
                 AbstractButton txtUsername;
                 String username = txtUsername.getText();
