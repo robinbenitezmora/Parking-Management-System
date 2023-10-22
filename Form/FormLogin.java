@@ -1,14 +1,5 @@
-import java.beans.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.text.Format;
-import java.text.Normalizer.Form;
-
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -208,59 +199,4 @@ class FormRegister extends javax.swing.JFrame {
                                                 .addContainerGap(30, Short.MAX_VALUE)));
         };
 
-        private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
-                AbstractButton txtUsername;
-                String username = txtUsername.getText();
-                AbstractButton txtPassword;
-                String password = txtPassword.getText();
-
-                if (username.equals("") || password.equals("")) {
-                        JOptionPane.showMessageDialog(null, "Please input username and password");
-                } else {
-                        try {
-                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_toko",
-                                                "root", "");
-                                Statement stmt = (Statement) con.createStatement();
-                                ResultSet rs = ((java.sql.Statement) stmt)
-                                                .executeQuery("SELECT * FROM tb_user WHERE username = '" + username
-                                                                + "' AND password = '" + password + "'");
-
-                                if (rs.next()) {
-                                        JOptionPane.showMessageDialog(null, "Login Success");
-                                        new Format().setVisible(true);
-                                        this.dispose();
-                                } else {
-                                        JOptionPane.showMessageDialog(null, "Username or Password is wrong");
-                                }
-                        } catch (Exception e) {
-                                JOptionPane.showMessageDialog(null, "Connection Error");
-                        }
-                }
-        }
-
-private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
-        AbstractButton txtUsername;
-        String username = txtUsername.getText();
-        AbstractButton txtPassword;
-        String password = txtPassword.getText();
-
-        if (username.equals("") || password.equals("")) {
-                JOptionPane.showMessageDialog(null, "Please input username and password");
-        } else {
-                try {
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_toko", "root", "");
-                        Statement stmt = (Statement) con.createStatement();
-                        ((java.sql.Statement) stmt).executeUpdate("INSERT INTO tb_user(username, password) VALUES('" + username + "','"
-                                        + password + "')");
-                        JOptionPane.showMessageDialog(null, "Register Success");
-                        new FormLogin().setVisible(true);
-                        this.dispose();
-                } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Connection Error");
-                }
-                finally {
-                        this.dispose();
-                }
-        }
-}``
-`
+}
