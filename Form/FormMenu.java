@@ -9,10 +9,9 @@ public class FormMenu extends javax.swing.JFrame {
   this.getContentPane().setBackground(Color.WHITE);
  }
 
- @SuppressWarnings("unchecked")
  // <editor-fold defaultstate="collapsed" desc="Generated Code">
-
  private void initComponents() {
+  // </editor-fold>
 
   JButton btnTambah = new javax.swing.JButton();
   JButton btnLihat = new javax.swing.JButton();
